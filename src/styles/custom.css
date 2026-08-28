@@ -1,0 +1,12 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+/* Penguin brand accent — a cool ice-blue over Starlight's defaults. */
+:root {
+  --sl-color-accent-low: #1a2b3a;
+  --sl-color-accent: #2b91d8;
+  --sl-color-accent-high: #b9dcf5;
+}
+:root[data-theme="light"] {
+  --sl-color-accent-low: #c8e4f7;
+  --sl-color-accent: #1f6fa8;
+  --sl-color-accent-high: #0d3b5c;
+}

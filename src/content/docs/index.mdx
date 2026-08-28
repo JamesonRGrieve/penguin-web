@@ -1,0 +1,61 @@
+---
+title: Penguin
+description: Penguin runs game and app servers as unprivileged Proxmox LXC — a soft-fork of Pelican, driven by embedded OpenTofu instead of Docker.
+template: splash
+hero:
+  tagline: Pelican, on Proxmox LXC. Every server is an unprivileged container, realized by embedded OpenTofu — no Docker, no in-container agent.
+  actions:
+    - text: What Penguin is
+      link: /overview/
+      icon: right-arrow
+      variant: primary
+    - text: What it changes vs Pelican
+      link: /reading-the-docs/
+      icon: document
+    - text: Panel on GitHub
+      link: https://github.com/JamesonRGrieve/penguin-panel
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Penguin is Pelican, minus Docker
+
+Penguin is a **rebasable soft-fork of [Pelican](https://pelican.dev)** — the same
+Panel and the same egg ecosystem — with one architectural change: a "server" is a
+**persistent, unprivileged Proxmox LXC**, not a Docker container. Wings realizes
+that container with **embedded OpenTofu** and the `bpg/proxmox` provider, and PVE
+provides console and metrics natively.
+
+If you already run Pelican, almost everything you know still applies. This site
+documents **only what Penguin does differently**; for everything unchanged it
+points you straight at Pelican's own docs.
+
+<CardGrid>
+  <Card title="Proxmox LXC, not Docker" icon="seti:docker">
+    Each server is an unprivileged LXC created from the egg's own OCI image.
+    Persistent lifecycle: created on install, destroyed on delete; start/stop are
+    power-state changes, never recreation.
+  </Card>
+  <Card title="Embedded OpenTofu" icon="setting">
+    Wings drives `tofu` in-process, one workspace + state per server, through the
+    `bpg/proxmox` provider — the realization engine, in place of the Docker daemon.
+  </Card>
+  <Card title="A scoped node channel" icon="approve-check">
+    Wings reaches the node through a `penguin@pam` service account whose sudo is
+    limited to `pct exec`/`pct push` over Penguin's VMID range, plus an API token.
+    Never hypervisor root, never an in-container agent.
+  </Card>
+  <Card title="Unmodified upstream eggs" icon="open-book">
+    The egg's OCI image is the container base; its install script and startup
+    command do the work. Nothing is baked per-egg.
+  </Card>
+</CardGrid>
+
+## The docs are the diff
+
+Penguin tracks Pelican. Rather than copy Pelican's documentation, this site hosts
+the pages that genuinely differ under LXC and **links out to `pelican.dev` for the
+rest** — so the unchanged docs are always current and never a stale mirror. Start
+with [How these docs work](/reading-the-docs/).
