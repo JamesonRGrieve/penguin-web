@@ -2,14 +2,15 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-// pengwings.dev — Penguin's web presence. Penguin is a soft-fork of Pelican that
+// docs.pengwings.dev — Penguin's documentation (the pengwings.dev brochure site
+// is served from the Zephyrex ERP). Penguin is a soft-fork of Pelican that
 // runs game/app servers as Proxmox LXC (not Docker). This site hosts ONLY what
 // Penguin changes; for everything unchanged it links out to pelican.dev, so we
 // never redistribute Pelican's (unlicensed) docs.
 const PELICAN_DOCS = "https://pelican.dev/docs";
 
 export default defineConfig({
-  site: "https://pengwings.dev",
+  site: "https://docs.pengwings.dev",
   integrations: [
     starlight({
       title: "Penguin",

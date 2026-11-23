@@ -1,7 +1,9 @@
 # penguin-web
 
-The web presence for **Penguin** at [pengwings.dev](https://pengwings.dev) — the
-landing page and documentation.
+The documentation for **Penguin**, published at
+[docs.pengwings.dev](https://docs.pengwings.dev). The brochure site at
+[pengwings.dev](https://pengwings.dev) is served from the Zephyrex ERP, not from
+this repository.
 
 Penguin is a rebasable soft-fork of [Pelican](https://pelican.dev) that runs
 game/app servers as **unprivileged Proxmox LXC** (via embedded OpenTofu) instead
@@ -40,7 +42,7 @@ pnpm preview       # serve the build
 
 | Path | What |
 |---|---|
-| `src/content/docs/index.mdx` | Landing page (splash) |
+| `src/content/docs/index.mdx` | Docs home page (splash) |
 | `src/content/docs/overview.md` | What Penguin is |
 | `src/content/docs/reading-the-docs.md` | How the diff-docs model works + the index |
 | `src/content/docs/changes/` | **Pages that differ from Pelican** (our authored content) |
